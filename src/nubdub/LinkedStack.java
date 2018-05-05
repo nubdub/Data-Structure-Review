@@ -116,12 +116,6 @@ public class LinkedStack<T> implements StackInterface<T> {
         private Node next;
 
 
-        public Node(T entry) {
-            data = entry;
-            next = null;
-        }
-
-
         public Node(T entry, Node nextNode) {
             data = entry;
             next = nextNode;
