@@ -8,11 +8,26 @@ package nubdub;
  *
  */
 public class ArrayBag<T> implements BagInterface<T> {
+    
+    private T[] bag;
+    private int numberOfEntries;
+    private int capacity;
+    private static final int DEFAULT_CAPACITY = 25;
+    
+    public ArrayBag() {
+        this(DEFAULT_CAPACITY);
+    }
+    
+    public ArrayBag(int capacity) {
+        @SuppressWarnings("unchecked")
+        T[] tempBag = (T[])new Object[capacity];
+        bag = tempBag;
+        numberOfEntries = 0;
+    }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
+        return numberOfEntries == 0;
     }
 
     @Override
