@@ -42,8 +42,9 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     @Override
     public void enqueue(T entry) {
         ensureCapacity();
-        backIndex = incrementIndex(backIndex);
         queue[backIndex] = entry;
+        backIndex = incrementIndex(backIndex);
+        size++;
     }
 
     private void ensureCapacity() {
@@ -71,6 +72,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
             T front = getFront();
             queue[frontIndex] = null;
             frontIndex = incrementIndex(frontIndex);
+            size--;
             return front;
         }
     }
@@ -107,6 +109,16 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
+        for (int i = 0; i < size; i++) {
+            sb.append(queue[i].toString());
+            if (i == size - 1) {
+                sb.append("]");
+            }
+            else {
+                sb.append(", ");
+            }
+        }
+        return sb.toString();
     }
 
 }

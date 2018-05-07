@@ -25,6 +25,11 @@ public class Runner {
         stack2.push("Yeet");
         stack2.push("Lmao");
         System.out.println(stack2.toString());
+        
+        ArrayQueue<String> queue = new ArrayQueue<>();
+        queue.enqueue("Oh");
+        queue.enqueue("yeah");
+        System.out.println(queue.toString());
     }
 
 }
